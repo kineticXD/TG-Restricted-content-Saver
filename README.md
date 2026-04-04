@@ -130,7 +130,6 @@ Commands are still supported:
 ## Project Structure
 
 ```text
-RestrictedContentDL/
   config.env
   config.py
   Dockerfile
