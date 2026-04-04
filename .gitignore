@@ -1,0 +1,16 @@
+*__pycache__*
+*.session*
+*.vscode*
+.env
+config.env
+config.env.local
+*.log
+*.json
+*.html
+./*.py
+test.py
+.osgrep
+osgrep
+downloads
+Assets
+logs.txt
