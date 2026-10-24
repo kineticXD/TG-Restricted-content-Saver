@@ -255,7 +255,7 @@ async def send_help_panel(message: Message):
     await message.reply(
         get_help_text(),
         reply_markup=get_context_menu_markup(),
-        disable_web_page_preview=True,
+        
     )
 
 
@@ -263,7 +263,7 @@ async def send_examples_panel(message: Message):
     await message.reply(
         get_examples_text(),
         reply_markup=get_context_menu_markup(),
-        disable_web_page_preview=True,
+        
     )
 
 
@@ -361,7 +361,7 @@ async def process_batch_download(bot: Client, message: Message, start_link: str,
         await message.reply(
             "❌ Please provide valid Telegram post links.",
             reply_markup=get_input_mode_markup(),
-            disable_web_page_preview=True,
+            
         )
         return
 
@@ -372,7 +372,7 @@ async def process_batch_download(bot: Client, message: Message, start_link: str,
         await message.reply(
             f"❌ **Error parsing links:** `{e}`",
             reply_markup=get_input_mode_markup(),
-            disable_web_page_preview=True,
+            
         )
         return
 
@@ -483,7 +483,7 @@ async def handle_download(bot: Client, message: Message, post_url: str, show_act
             return await message.reply(
                 text,
                 reply_markup=get_quick_actions_markup(),
-                disable_web_page_preview=True,
+                
             )
         return await message.reply(text, disable_web_page_preview=True)
 
@@ -740,7 +740,7 @@ async def start(_, message: Message):
     await message.reply(
         get_welcome_text(),
         reply_markup=get_main_menu_markup(),
-        disable_web_page_preview=True,
+        
     )
 
 
@@ -769,7 +769,7 @@ async def callback_router(bot: Client, query: CallbackQuery):
             await query.message.reply(
                 get_welcome_text(),
                 reply_markup=get_main_menu_markup(),
-                disable_web_page_preview=True,
+                
             )
 
         elif action == "single":
@@ -777,7 +777,7 @@ async def callback_router(bot: Client, query: CallbackQuery):
             await query.message.reply(
                 get_single_prompt_text(),
                 reply_markup=get_input_mode_markup(),
-                disable_web_page_preview=True,
+                
             )
 
         elif action == "batch":
@@ -785,7 +785,7 @@ async def callback_router(bot: Client, query: CallbackQuery):
             await query.message.reply(
                 get_batch_prompt_text(),
                 reply_markup=get_input_mode_markup(),
-                disable_web_page_preview=True,
+                
             )
 
         elif action == "help":
@@ -859,7 +859,7 @@ async def download_media(bot: Client, message: Message):
         await message.reply(
             get_single_prompt_text(),
             reply_markup=get_input_mode_markup(),
-            disable_web_page_preview=True,
+            
         )
         return
 
@@ -878,7 +878,7 @@ async def download_range(bot: Client, message: Message):
         await message.reply(
             get_batch_prompt_text(),
             reply_markup=get_input_mode_markup(),
-            disable_web_page_preview=True,
+            
         )
         return
 
@@ -900,7 +900,7 @@ async def handle_any_message(bot: Client, message: Message):
             await message.reply(
                 "❌ I could not find a Telegram post link. Please send one valid link.",
                 reply_markup=get_input_mode_markup(),
-                disable_web_page_preview=True,
+                
             )
             return
 
@@ -913,7 +913,7 @@ async def handle_any_message(bot: Client, message: Message):
             await message.reply(
                 "❌ Please send two Telegram post links: `start_link end_link`.",
                 reply_markup=get_input_mode_markup(),
-                disable_web_page_preview=True,
+                
             )
             return
 
@@ -932,7 +932,7 @@ async def handle_any_message(bot: Client, message: Message):
     await message.reply(
         "I can work with Telegram post links. Pick an option below to continue.",
         reply_markup=get_main_menu_markup(),
-        disable_web_page_preview=True,
+        
     )
 
 
