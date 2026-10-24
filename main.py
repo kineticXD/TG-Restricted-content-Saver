@@ -944,16 +944,19 @@ async def initialize():
         forward_chat_id = await resolve_forward_chat_id(PyroConf.FORWARD_CHAT_ID)
         LOGGER(__name__).info(f"Auto-forward enabled. Target chat: {forward_chat_id}")
 
-
 if __name__ == "__main__":
     try:
         LOGGER(__name__).info("Bot Started!")
         
-        # --- ADD THESE TWO LINES ---
         import staypresent
         staypresent.start()
-        # ---------------------------
         
         asyncio.get_event_loop().run_until_complete(initialize())
         user.start()
         bot.run()
+    except KeyboardInterrupt:
+        pass
+    except Exception as err:
+        LOGGER(__name__).error(err)
+    finally:
+        LOGGER(__name__).info("Bot Stopped")
