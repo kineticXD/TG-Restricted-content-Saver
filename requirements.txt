@@ -4,4 +4,4 @@ Pyleaves
 python-dotenv
 psutil
 pillow
-staypresent
+staypresent[prod]
