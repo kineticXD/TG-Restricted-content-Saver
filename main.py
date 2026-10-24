@@ -945,18 +945,11 @@ async def initialize():
         LOGGER(__name__).info(f"Auto-forward enabled. Target chat: {forward_chat_id}")
 
 if __name__ == "__main__":
-    try:
-        LOGGER(__name__).info("Bot Started!")
-        
-        import staypresent
-        staypresent.start()
-        
-        asyncio.get_event_loop().run_until_complete(initialize())
-        user.start()
-        bot.run()
-    except KeyboardInterrupt:
-        pass
-    except Exception as err:
-        LOGGER(__name__).error(err)
-    finally:
-        LOGGER(__name__).info("Bot Stopped")
+    import os
+    import staypresent
+    
+    # Start the web server and run this same file as the bot process
+    staypresent.run(
+        "main.py",
+        port=int(os.getenv("PORT", 8080))
+    )
